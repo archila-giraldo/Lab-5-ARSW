@@ -1,0 +1,16 @@
+Integrantes:
+    Camilo Archila
+    Luis Giraldo
+
+Condiciones de carrera:
+    - Agregar un nuevo plano
+    - Actualizar un plano
+    - Consultar un plano al mismo tiempo que se actualiza
+
+Región crítica:
+    La colección de blueprints ya que el acceso no atómico o sincronizado de esta sección
+    puede generar varios errores por las condiciones de carrera
+
+Solución:
+    Usar una clase concurrente, como lo es concurrentHashMap, la cual nos perimte un manejo atomico de este
+    contenedor, la clase es completamente interoperable con HashTable

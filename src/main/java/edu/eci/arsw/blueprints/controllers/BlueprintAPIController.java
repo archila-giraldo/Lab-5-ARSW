@@ -39,7 +39,7 @@ public class BlueprintAPIController {
 
     }
 
-     @GetMapping("{author}")
+    @GetMapping("{author}")
     public ResponseEntity<?> controllerGetBlueprintsByAuthor(@PathVariable("author") String author){
          List<Blueprint> data = bps.getBlueprintsByAuthor(author);
          Gson gson = new Gson();
@@ -53,7 +53,7 @@ public class BlueprintAPIController {
         return new ResponseEntity<>(gson.toJson(data), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
     public ResponseEntity<?> controllerPostBlueprint(@RequestBody Blueprint bp){
         try{
             bps.addNewBlueprint(bp);
